@@ -1,0 +1,37 @@
+{
+    "name": "phoenixrvd/oda",
+    "description": "API-Package for simplify access from Data-Block of an object, without implementing from getters and setters.",
+    "type": "library",
+    "require": {
+        "php": ">=5.6",
+        "nayjest/str-case-converter": "^1.0"
+    },
+    "require-dev": {
+        "ext-xdebug": "*",
+        "phpunit/phpunit": "^6.1"
+    },
+    "license": "mit",
+    "autoload": {
+        "psr-4": {
+            "PhoenixRVD\\ODA\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhoenixRVD\\ODA\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Viacheslav Wolf",
+            "email": "phoenixrvd@yahoo.de"
+        }
+    ],
+    "minimum-stability": "stable",
+    "scripts": {
+        "test": [
+            "@composer install",
+            "@php -dxdebug.coverage_enable=1 vendor/bin/phpunit --configuration phpunit.xml"
+        ]
+    }
+}
