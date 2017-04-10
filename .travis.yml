@@ -14,3 +14,4 @@ before_script:
 
 script:
     - composer test
+    - vendor/bin/test-reporter --coverage-report=coverage.xml
