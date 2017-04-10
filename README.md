@@ -2,6 +2,7 @@
 
 
 [![Build Status](https://travis-ci.org/phoenixrvd/oda.png?branch=master)](https://travis-ci.org/phoenixrvd/oda)
+[![Code Climate](https://codeclimate.com/github/phoenixrvd/oda.png)](https://codeclimate.com/github/phoenixrvd/oda)
 
 * Vereinfacht das Nutzen von Datenhaltungsobjekten.
 * Erhöht die Lesbarkeit von Quellcode, durch das Minimieren von LOC.
