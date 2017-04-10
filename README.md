@@ -7,6 +7,11 @@
 * Erhöht die Lesbarkeit von Quellcode, durch das Minimieren von LOC.
 * Standardisiert DAO-Schicht mit einem kleinem Package, ohne große Frameworks.
  
+## Installation
+
+```bash
+composer require phoenixrvd/oda
+```
 ## Testing
 
 ```bash
