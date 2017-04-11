@@ -19,6 +19,9 @@ class DataAccessorsTest extends TestCase {
 
         self::assertFalse($object->hasBar());
         self::assertFalse($object->isBar('foo'));
+
+        self::assertJson($object->setFoo(['foo' => 'bar'])->asJSONFoo());
+        self::assertEquals('null', $object->setFoo(null)->asJSONFoo());
     }
 
     /**

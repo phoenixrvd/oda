@@ -5,6 +5,7 @@ namespace PhoenixRVD\ODA;
 
 use PhoenixRVD\ODA\Interfaces\OdaObject;
 use PhoenixRVD\ODA\Methods\AbstractMethod;
+use PhoenixRVD\ODA\Methods\AsJSON;
 use PhoenixRVD\ODA\Methods\Get;
 use PhoenixRVD\ODA\Methods\Has;
 use PhoenixRVD\ODA\Methods\Is;
@@ -17,22 +18,41 @@ use PhoenixRVD\ODA\Methods\Set;
 class MethodFactory {
 
     /**
+     * Mapping: Method-Präfix zu Händler-Klasse
+     *
+     * @var array
+     */
+    private $accessors = [
+        'get'    => Get::class,
+        'has'    => Has::class,
+        'is'     => Is::class,
+        'set'    => Set::class,
+        'asJSON' => AsJSON::class,
+    ];
+
+    /**
+     * Fügt ein neues Method-Händler hinzu, bzw. ersetzt ein Vorhandenes.
+     *
+     * @param string $methodPrefix
+     * @param string $accessorClass
+     *
+     * @return $this
+     */
+    public function setAccessor($methodPrefix, $accessorClass) {
+        $this->accessors[ $methodPrefix ] = $accessorClass;
+
+        return $this;
+    }
+
+    /**
      * @param OdaObject $object
      * @param string    $methodName
      *
      * @return AbstractMethod|NullMethod
      */
-    public static function makeMethod($object, $methodName) {
+    public function makeMethod(OdaObject $object, $methodName) {
 
-        // Mapping: Method-Präfix zu Händler-Klasse
-        $methods = [
-            'get' => Get::class,
-            'has' => Has::class,
-            'is'  => Is::class,
-            'set' => Set::class,
-        ];
-
-        foreach ($methods as $methodPrefix => $handlerClassName) {
+        foreach ($this->accessors as $methodPrefix => $handlerClassName) {
 
             // Wenn es kein Passender Händler ist, nichts weiteres tun
             if (strpos($methodName, $methodPrefix) !== 0) {

@@ -12,11 +12,13 @@ use PhoenixRVD\ODA\Traits\ValueObject;
  * @method string getFoo()
  * @method bool isFoo(string $value)
  * @method bool hasFoo()
+ * @method string asJSONFoo() Gibt das Value als JSON-String zurück
  *
  * @method $this setBar(string $value)
  * @method string getBar()
  * @method bool isBar(string $value)
  * @method bool hasBar()
+ *
  */
 class ExampleObject implements OdaObject {
 
