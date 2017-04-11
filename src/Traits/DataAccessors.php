@@ -14,6 +14,7 @@ trait DataAccessors {
 
     public function __call($name, $arguments) {
         /** @noinspection PhpParamsInspection $this ist im Trait nicht bekannt */
+        /** @noinspection PhpMethodParametersCountMismatchInspection Optional-Method im Interface-Contract */
         return (new MethodFactory)->makeMethod($this, $name)->execute($arguments);
     }
 

@@ -9,7 +9,7 @@ namespace PhoenixRVD\ODA\Methods;
  */
 class AsJSON extends AbstractMethod {
 
-    public function execute(array $attributes) {
+    public function execute() {
         $data = $this->object->getData();
 
         return json_encode($data[ $this->propertyName ], JSON_PRETTY_PRINT);

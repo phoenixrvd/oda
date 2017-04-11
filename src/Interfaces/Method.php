@@ -8,10 +8,10 @@ interface Method {
     /**
      * Ruft die Accessor-Methode Auf.
      *
-     * @param array $attributes
+     * @param array $attributes (optional)
      *
      * @return mixed
      */
-    public function execute(array $attributes);
+    public function execute();
 
 }

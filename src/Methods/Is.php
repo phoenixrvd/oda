@@ -14,7 +14,7 @@ namespace PhoenixRVD\ODA\Methods;
  */
 class Is extends AbstractMethod {
 
-    public function execute(array $attributes) {
+    public function execute(array $attributes = array()) {
         $data = $this->object->getData();
 
         return isset($data[ $this->propertyName ]) && ($data[ $this->propertyName ] === $attributes[0]);

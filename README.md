@@ -167,7 +167,7 @@ use PhoenixRVD\ODA\Methods\AbstractMethod;
 
 class DateRFC822 extends AbstractMethod {
 
-    public function execute(array $attributes) {
+    public function execute(array $attributes = array()) {
         $data = $this->object->getData();
 
         return date(DATE_RFC822, $data[ $this->propertyName ]);

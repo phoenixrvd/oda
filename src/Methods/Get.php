@@ -9,7 +9,7 @@ namespace PhoenixRVD\ODA\Methods;
  */
 class Get extends AbstractMethod {
 
-    public function execute(array $attributes) {
+    public function execute() {
         $data = $this->object->getData();
 
         return $data[ $this->propertyName ];

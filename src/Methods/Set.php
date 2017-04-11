@@ -9,7 +9,7 @@ namespace PhoenixRVD\ODA\Methods;
  */
 class Set extends AbstractMethod {
 
-    public function execute(array $attributes) {
+    public function execute(array $attributes = array()) {
         $this->object->setDataValue($this->propertyName, $attributes[0]);
 
         return $this->object;

@@ -12,12 +12,10 @@ class NotImplemented extends AbstractMethod {
     /**
      * Wirft eine Exception, da die Aufgerufen Objekt-Methode gibt es nicht.
      *
-     * @param array $attributes
-     *
      * @return mixed
      * @throws \PhoenixRVD\ODA\Exceptions\NotImplementedException
      */
-    public function execute(array $attributes) {
+    public function execute() {
         throw new NotImplementedException('Class ' . get_class($this->object) . ' has no method ' . $this->methodName);
     }
 }
