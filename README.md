@@ -9,7 +9,7 @@
 [![Build Status](https://travis-ci.org/phoenixrvd/oda.png?branch=master)](https://travis-ci.org/phoenixrvd/oda)
 [![Code Climate](https://codeclimate.com/github/phoenixrvd/oda.png)](https://codeclimate.com/github/phoenixrvd/oda)
 [![Test Coverage](https://codeclimate.com/github/phoenixrvd/oda/badges/coverage.svg)](https://codeclimate.com/github/phoenixrvd/oda/coverage)
-[![BCH compliance](https://bettercodehub.com/edge/badge/phoenixrvd/oda)](https://bettercodehub.com/)
+[![BCH compliance](https://bettercodehub.com/edge/badge/phoenixrvd/oda)](https://bettercodehub.com/results/phoenixrvd/oda)
 [![Latest Unstable Version](https://poser.pugx.org/phoenixrvd/oda/v/unstable.svg)](https://packagist.org/packages/phoenixrvd/oda)
 
 
@@ -221,7 +221,7 @@ class MyDataObject implements OdaObject {
 echo (new MyDataObject())->setCreatedAt(1491945734)->dateCreatedAt(); 
 ```
 
-## Hinwese
+## Hinweis
 
 Projekte, die auf sehr hohe Leistung ausgelegt sind, sollten auf die Methodik generell verzichten. Diskussion dazu findet man 
 [hier](http://stackoverflow.com/questions/3330852/get-set-call-performance-questions-with-php).
