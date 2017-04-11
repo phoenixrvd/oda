@@ -11,6 +11,7 @@ abstract class AbstractMethod implements Method {
 
     /**
      * Mapping Method zu Property-Name
+     *
      * @var string[]
      */
     protected static $methodToPropertyMap = [];
@@ -22,9 +23,14 @@ abstract class AbstractMethod implements Method {
      * @var string
      */
     protected $propertyName;
+    /**
+     * @var string
+     */
+    protected $methodName;
 
     public function __construct($methodName, $handlerPrefix, OdaObject $object) {
         $this->object = $object;
+        $this->methodName = $methodName;
 
         if (isset(static::$methodToPropertyMap[ $methodName ])) {
             $this->propertyName = static::$methodToPropertyMap[ $methodName ];
@@ -39,15 +45,6 @@ abstract class AbstractMethod implements Method {
 
         static::$methodToPropertyMap[ $methodName ] = Str::toSnakeCase($methodSuffix);
         $this->propertyName = static::$methodToPropertyMap[ $methodName ];
-    }
-
-    /**
-     * Prüft, ob es ein echtes Händler oder NULL-Händler ist. (Null-Object-Pattern)
-     *
-     * @return bool
-     */
-    public function isNullMethod() {
-        return false;
     }
 
     /**

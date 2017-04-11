@@ -18,7 +18,10 @@
 - [Installation](#installation)
 - [Basics](#basics)
 - [IDE-Helper](#ide-helper)
-- [Anmerkung](#anmerkung)
+- [Standard-Accessoren](#standard-accessoren)
+- [Eigene-Accessoren](#eigene-accessoren)
+  - [Beispiel](#beispiel)
+- [Hinwese](#hinwese)
 - [Testing](#testing)
 - [Copyright and license](#copyright-and-license)
 
@@ -132,7 +135,90 @@ Es ist aber immer noch kompakter als vorher.
  */
 ```
 
-## Anmerkung
+## Standard-Accessoren
+
+Standard-Präfixes:
+
+| Präfix        | Beschreibung                                                                              |
+|---------------|-------------------------------------------------------------------------------------------|
+| **get**       | Gibt Wert eines Feldes zurück                                                             |
+| **set**       | Setzt Wert eines Feldes                                                                   |
+| **is(value)** | Prüftob Wert exakt dem ```value``` Parameter entspricht (Vergleich mit ```===```)         |
+| **has**       | Prüft ob das Objekt ein Feld für Daten enthält (Equivalent: ```isset($array['value'])```) |
+| **asJSON**    | Gibt Wert eines Feldes als formatiertes JSON-String zurück.                               |
+
+## Eigene-Accessoren
+
+Manchmal braucht man, dass bestimmte Felder eines Objektes formatiert zurückgegeben werden. 
+
+Z.b. ```$this->data['created_at']``` ist Unix-Timestamp, man braucht es aber als RFC822-Datum.
+ 
+Im [Bespiel](#beispiel) ist beschrieben, wie man der API ein **date** - Accessor beibringt. Damit wird voll automatisch 
+Unix-Timestamp nach Datum konvertieren und man es mit ```$this->dateCreatedAt()``` überall verwenden kann.
+  
+### Beispiel
+
+1. Accessor-Klasse anlegen
+
+```php
+<?php 
+
+use PhoenixRVD\ODA\Methods\AbstractMethod;
+
+class Date extends AbstractMethod {
+
+    public function execute(array $attributes) {
+        $data = $this->object->getData();
+
+        return date(DATE_RFC822, $data[ $this->propertyName ]);
+    }
+}
+```
+
+2. Trait für Wiederverwendbarkeit anlegen
+ 
+ ```php
+<?php
+
+use PhoenixRVD\ODA\MethodFactory;
+
+trait MyObjectDecorator {
+
+    public function __call($name, $arguments) {
+        return (new MethodFactory)
+            ->setAccessor('date', Date::class) // Eigenes Accessor bei der Factory registrieren
+            ->makeMethod($this, $name)
+            ->execute($arguments);
+    }
+
+}
+```
+
+3. Eigenes Trait an Stelle von Standard-Trait im Object verwenden. 
+
+```php
+<?php
+
+use PhoenixRVD\ODA\Interfaces\OdaObject;
+use PhoenixRVD\ODA\Traits\ValueObject;
+
+class MyDataObject implements OdaObject {
+
+    use ValueObject, MyObjectDecorator;
+
+}
+```
+
+4. Einfach die Methode aufrufen
+ 
+```php
+<?php
+
+// Ausgabe: Tue, 11 Apr 2017 21:22:14 +0000
+echo (new MyDataObject())->setCreatedAt(1491945734)->dateCreatedAt(); 
+```
+
+## Hinwese
 
 Projekte, die auf sehr hohe Leistung ausgelegt sind, sollten auf die Methodik generell verzichten. Diskussion dazu findet man 
 [hier](http://stackoverflow.com/questions/3330852/get-set-call-performance-questions-with-php).

@@ -9,7 +9,7 @@ use PhoenixRVD\ODA\Methods\AsJSON;
 use PhoenixRVD\ODA\Methods\Get;
 use PhoenixRVD\ODA\Methods\Has;
 use PhoenixRVD\ODA\Methods\Is;
-use PhoenixRVD\ODA\Methods\NullMethod;
+use PhoenixRVD\ODA\Methods\NotImplemented;
 use PhoenixRVD\ODA\Methods\Set;
 
 /**
@@ -48,7 +48,7 @@ class MethodFactory {
      * @param OdaObject $object
      * @param string    $methodName
      *
-     * @return AbstractMethod|NullMethod
+     * @return AbstractMethod
      */
     public function makeMethod(OdaObject $object, $methodName) {
 
@@ -67,7 +67,7 @@ class MethodFactory {
             }
         }
 
-        return new NullMethod();
+        return new NotImplemented($methodName, 'notImplemented', $object);
     }
 
 }

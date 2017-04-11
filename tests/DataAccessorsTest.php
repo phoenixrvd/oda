@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class DataAccessorsTest extends TestCase {
 
-    public function testFoo(){
+    public function testDefaultMethods() {
         $object = new ExampleObject();
 
         self::assertInstanceOf(ExampleObject::class, $object->setFoo('bar'));
@@ -24,11 +24,17 @@ class DataAccessorsTest extends TestCase {
         self::assertEquals('null', $object->setFoo(null)->asJSONFoo());
     }
 
+    public function testCustomMethods() {
+        $object = new ExampleExtendedObject();
+
+        self::assertEquals('Hallo Word', $object->setFoo('Word')->halloFoo());
+    }
+
     /**
      * @expectedException \PhoenixRVD\ODA\Exceptions\NotImplementedException
      * @expectedExceptionMessage Class PhoenixRVD\ODA\ExampleObject has no method callFooBar
      */
-    public function testMethodNotFound(){
+    public function testMethodNotFound() {
         $object = new ExampleObject();
         $object->callFooBar();
     }
@@ -37,7 +43,7 @@ class DataAccessorsTest extends TestCase {
      * @expectedException \PhoenixRVD\ODA\Exceptions\NotImplementedException
      * @expectedExceptionMessage Class PhoenixRVD\ODA\ExampleObject has no method get
      */
-    public function testPraefixOnly(){
+    public function testPraefixOnly() {
         $object = new ExampleObject();
         $object->get();
     }
