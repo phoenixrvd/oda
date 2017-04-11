@@ -165,7 +165,7 @@ Unix-Timestamp nach Datum konvertieren und man es mit ```$this->dateCreatedAt()`
 
 use PhoenixRVD\ODA\Methods\AbstractMethod;
 
-class Date extends AbstractMethod {
+class DateRFC822 extends AbstractMethod {
 
     public function execute(array $attributes) {
         $data = $this->object->getData();
@@ -186,7 +186,7 @@ trait MyObjectDecorator {
 
     public function __call($name, $arguments) {
         return (new MethodFactory)
-            ->setAccessor('date', Date::class) // Eigenes Accessor bei der Factory registrieren
+            ->setAccessor('date', DateRFC822::class) // Eigenes Accessor bei der Factory registrieren
             ->makeMethod($this, $name)
             ->execute($arguments);
     }
