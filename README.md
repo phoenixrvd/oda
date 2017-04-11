@@ -7,7 +7,6 @@
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%205.6-8892BF.svg)](https://php.net/)
 [![Latest Stable Version](https://poser.pugx.org/phoenixrvd/oda/v/stable.svg)](https://packagist.org/packages/phoenixrvd/oda)
 [![Latest Unstable Version](https://poser.pugx.org/phoenixrvd/oda/v/unstable.svg)](https://packagist.org/packages/phoenixrvd/oda)
-[![Total Downloads](https://poser.pugx.org/phoenixrvd/oda/downloads.svg)](https://packagist.org/packages/phoenixrvd/oda)
 [![License](https://poser.pugx.org/phoenixrvd/oda/license)](https://packagist.org/packages/phoenixrvd/oda)
 [![composer.lock](https://poser.pugx.org/phoenixrvd/oda/composerlock)](https://packagist.org/packages/phoenixrvd/oda)
 
