@@ -14,6 +14,9 @@ class DataAccessorsTest extends TestCase {
         self::assertTrue($object->isFoo('bar'));
         self::assertEquals('bar', $object->getFoo());
 
+        self::assertInstanceOf(ExampleObject::class, $object->setFoo('bar1'));
+        self::assertEquals('bar1', $object->getFoo());
+
         self::assertFalse($object->hasBar());
         self::assertFalse($object->isBar('foo'));
     }
