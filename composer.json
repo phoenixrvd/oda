@@ -32,7 +32,7 @@
     "scripts": {
         "test": [
             "@composer install",
-            "@php -dxdebug.coverage_enable=1 vendor/bin/phpunit --configuration phpunit.xml"
+            "@php vendor/bin/phpunit --configuration phpunit.xml"
         ]
     }
 }
