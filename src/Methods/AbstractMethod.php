@@ -4,10 +4,16 @@ namespace PhoenixRVD\ODA\Methods;
 
 
 use Nayjest\StrCaseConverter\Str;
+use PhoenixRVD\ODA\Interfaces\Method;
 use PhoenixRVD\ODA\Interfaces\OdaObject;
 
-abstract class AbstractMethod {
+abstract class AbstractMethod implements Method {
 
+    /**
+     * Mapping Method zu Property-Name
+     * @var string[]
+     */
+    protected static $methodToPropertyMap = [];
     /**
      * @var OdaObject
      */
@@ -17,30 +23,23 @@ abstract class AbstractMethod {
      */
     protected $propertyName;
 
-    public function __construct(OdaObject $object, $methodName) {
+    public function __construct($methodName, $handlerPrefix, OdaObject $object) {
         $this->object = $object;
 
-        $methodHandlerName = lcfirst(str_replace(__NAMESPACE__ . "\\", '', get_class($this)));
-        if (strpos($methodName, $methodHandlerName) !== 0) {
+        if (isset(static::$methodToPropertyMap[ $methodName ])) {
+            $this->propertyName = static::$methodToPropertyMap[ $methodName ];
+
             return;
         }
 
-        $methodSuffix = str_replace($methodHandlerName, '', $methodName);
+        $methodSuffix = substr_replace($methodName, '', 0, strlen($handlerPrefix));
         if (empty($methodSuffix)) {
             return;
         }
 
-        $this->propertyName = Str::toSnakeCase($methodSuffix);
+        static::$methodToPropertyMap[ $methodName ] = Str::toSnakeCase($methodSuffix);
+        $this->propertyName = static::$methodToPropertyMap[ $methodName ];
     }
-
-    /**
-     * Ruft die Accessor-Methode Auf.
-     *
-     * @param array $attributes
-     *
-     * @return mixed
-     */
-    abstract public function execute(array $attributes);
 
     /**
      * Prüft, ob es ein echtes Händler oder NULL-Händler ist. (Null-Object-Pattern)

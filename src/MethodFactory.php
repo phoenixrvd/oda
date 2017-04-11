@@ -23,22 +23,31 @@ class MethodFactory {
      * @return AbstractMethod|NullMethod
      */
     public static function makeMethod($object, $methodName) {
+
+        // Mapping: Method-Präfix zu Händler-Klasse
         $methods = [
-            Get::class,
-            Has::class,
-            Is::class,
-            Set::class,
+            'get' => Get::class,
+            'has' => Has::class,
+            'is'  => Is::class,
+            'set' => Set::class,
         ];
 
-        foreach ($methods as $methodClassName) {
+        foreach ($methods as $methodPrefix => $handlerClassName) {
+
+            // Wenn es kein Passender Händler ist, nichts weiteres tun
+            if (strpos($methodName, $methodPrefix) !== 0) {
+                continue;
+            }
+
             /** @var AbstractMethod $method */
-            $method = new $methodClassName($object, $methodName);
+            $method = new $handlerClassName($methodName, $methodPrefix, $object);
             if ($method->isMatched()) {
+
                 return $method;
             }
         }
 
-        return new NullMethod($object, $methodName);
+        return new NullMethod();
     }
 
 }
