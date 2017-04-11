@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/phoenixrvd/oda.png?branch=master)](https://travis-ci.org/phoenixrvd/oda)
 [![Code Climate](https://codeclimate.com/github/phoenixrvd/oda.png)](https://codeclimate.com/github/phoenixrvd/oda)
 [![Test Coverage](https://codeclimate.com/github/phoenixrvd/oda/badges/coverage.svg)](https://codeclimate.com/github/phoenixrvd/oda/coverage)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%205.6-8892BF.svg)](https://php.net/)
 [![Latest Stable Version](https://poser.pugx.org/phoenixrvd/oda/v/stable)](https://packagist.org/packages/phoenixrvd/oda)
 [![Total Downloads](https://poser.pugx.org/phoenixrvd/oda/downloads)](https://packagist.org/packages/phoenixrvd/oda)
 [![Latest Unstable Version](https://poser.pugx.org/phoenixrvd/oda/v/unstable)](https://packagist.org/packages/phoenixrvd/oda)
