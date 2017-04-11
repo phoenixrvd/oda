@@ -10,6 +10,23 @@
 [![License](https://poser.pugx.org/phoenixrvd/oda/license)](https://packagist.org/packages/phoenixrvd/oda)
 [![composer.lock](https://poser.pugx.org/phoenixrvd/oda/composerlock)](https://packagist.org/packages/phoenixrvd/oda)
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Features](#features)
+- [Installation](#installation)
+- [Basics](#basics)
+- [IDE-Helper](#ide-helper)
+- [Anmerkung](#anmerkung)
+- [Testing](#testing)
+- [Copyright and license](#copyright-and-license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+## Features 
+
 * Vereinfacht das Nutzen von Datenhaltungsobjekten.
 * Erhöht die Lesbarkeit von Quellcode, durch das Minimieren von LOC.
 * Standardisiert DAO-Schicht mit einem kleinem Package, ohne große Frameworks.
@@ -22,7 +39,7 @@ Bei der Installation ist [Composer](https://getcomposer.org/download/) vorausges
 composer require phoenixrvd/oda
 ```
 
-## Wie wird es verwendet?
+## Basics
 
 Angenommen, braucht man ein ein Objekt, welches genau 2 Datenfelder hat (foo und bar).
 
@@ -123,7 +140,7 @@ Projekte, die auf sehr hohe Leistung ausgelegt sind, sollten auf die Methodik ge
 ## Testing
 
 ```bash
-composer test
+composer oda:test
 ```
 
 ## Copyright and license

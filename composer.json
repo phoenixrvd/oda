@@ -30,9 +30,12 @@
     ],
     "minimum-stability": "stable",
     "scripts": {
-        "test": [
+        "oda:test": [
             "@composer install",
             "@php vendor/bin/phpunit --configuration phpunit.xml"
+        ],
+        "oda:toc": [
+            "doctoc README.md --notitle"
         ]
     }
 }

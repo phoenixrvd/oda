@@ -13,5 +13,5 @@ before_script:
     - travis_retry composer self-update
 
 script:
-    - composer test
+    - composer oda:test
     - vendor/bin/test-reporter --coverage-report=coverage.xml
