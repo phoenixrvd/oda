@@ -60,14 +60,14 @@ class MethodFactory {
             }
 
             /** @var AbstractMethod $method */
-            $method = new $handlerClassName($methodName, $methodPrefix, $object);
+            $method = new $handlerClassName($methodName, $methodPrefix);
             if ($method->isMatched()) {
-
+                $method->setObject($object);
                 return $method;
             }
         }
 
-        return new NotImplemented($methodName, 'notImplemented', $object);
+        return (new NotImplemented($methodName, 'notImplemented'))->setObject($object);
     }
 
 }

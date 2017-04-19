@@ -28,8 +28,7 @@ abstract class AbstractMethod implements Method {
      */
     protected $methodName;
 
-    public function __construct($methodName, $handlerPrefix, OdaObject $object) {
-        $this->object = $object;
+    public function __construct($methodName, $handlerPrefix) {
         $this->methodName = $methodName;
 
         if (isset(static::$methodToPropertyMap[ $methodName ])) {
@@ -45,6 +44,12 @@ abstract class AbstractMethod implements Method {
 
         static::$methodToPropertyMap[ $methodName ] = Str::toSnakeCase($methodSuffix);
         $this->propertyName = static::$methodToPropertyMap[ $methodName ];
+    }
+
+    public function setObject(OdaObject $object) {
+        $this->object = $object;
+
+        return $this;
     }
 
     /**
