@@ -24,7 +24,7 @@
 - [Standard-Accessoren](#standard-accessoren)
 - [Eigene-Accessoren](#eigene-accessoren)
   - [Beispiel](#beispiel)
-- [Hinwese](#hinwese)
+- [Hinweis](#hinweis)
 - [Testing](#testing)
 - [Copyright and license](#copyright-and-license)
 
