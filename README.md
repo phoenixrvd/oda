@@ -8,6 +8,7 @@
 
 [![Build Status](https://travis-ci.org/phoenixrvd/oda.png?branch=master)](https://travis-ci.org/phoenixrvd/oda)
 [![Code Climate](https://codeclimate.com/github/phoenixrvd/oda.png)](https://codeclimate.com/github/phoenixrvd/oda)
+[![StyleCI](https://styleci.io/repos/87853601/shield?branch=master)](https://styleci.io/repos/87853601)
 [![Test Coverage](https://codeclimate.com/github/phoenixrvd/oda/badges/coverage.svg)](https://codeclimate.com/github/phoenixrvd/oda/coverage)
 [![BCH compliance](https://bettercodehub.com/edge/badge/phoenixrvd/oda)](https://bettercodehub.com/results/phoenixrvd/oda)
 [![Latest Unstable Version](https://poser.pugx.org/phoenixrvd/oda/v/unstable.svg)](https://packagist.org/packages/phoenixrvd/oda)
