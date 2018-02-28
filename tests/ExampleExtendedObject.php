@@ -13,13 +13,16 @@ class ExampleExtendedObject implements OdaObject {
 
     use ValueObject;
 
+    public function __construct() {
+        MethodFactory::getInstance()->setAccessor(new HalloMethod);
+    }
+
     public function __call($name, $arguments) {
 
         /** @noinspection PhpParamsInspection $this ist im Trait nicht bekannt */
-        return (new MethodFactory)
-            ->setAccessor('hallo', HalloMethod::class)
-            ->makeMethod($this, $name)
-            ->execute($arguments);
+        return MethodFactory::getInstance()
+            ->makeMethod($name)
+            ->execute($this, $arguments);
     }
 
 }

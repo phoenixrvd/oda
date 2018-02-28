@@ -2,6 +2,8 @@
 
 namespace PhoenixRVD\ODA\Methods;
 
+use PhoenixRVD\ODA\Interfaces\OdaObject;
+
 /**
  * Implementiert die Is-Methoden.
  * Die Prüfung ist Typ-Sicher.
@@ -14,8 +16,8 @@ namespace PhoenixRVD\ODA\Methods;
  */
 class Is extends AbstractMethod {
 
-    public function execute(array $attributes = array()) {
-        $data = $this->object->getData();
+    public function execute(OdaObject $object, $attributes = array()) {
+        $data = $object->getData();
 
         return isset($data[ $this->propertyName ]) && ($data[ $this->propertyName ] === $attributes[0]);
     }

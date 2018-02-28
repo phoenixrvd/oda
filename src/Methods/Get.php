@@ -2,6 +2,8 @@
 
 namespace PhoenixRVD\ODA\Methods;
 
+use PhoenixRVD\ODA\Interfaces\OdaObject;
+
 /**
  * Implementiert die Getter-Methoden.
  *
@@ -9,8 +11,8 @@ namespace PhoenixRVD\ODA\Methods;
  */
 class Get extends AbstractMethod {
 
-    public function execute() {
-        $data = $this->object->getData();
+    public function execute(OdaObject $object) {
+        $data = $object->getData();
 
         return $data[ $this->propertyName ];
     }

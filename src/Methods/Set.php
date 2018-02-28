@@ -2,6 +2,8 @@
 
 namespace PhoenixRVD\ODA\Methods;
 
+use PhoenixRVD\ODA\Interfaces\OdaObject;
+
 /**
  * Implementiert die Setter-Methoden.
  *
@@ -9,10 +11,9 @@ namespace PhoenixRVD\ODA\Methods;
  */
 class Set extends AbstractMethod {
 
-    public function execute(array $attributes = array()) {
-        $this->object->setDataValue($this->propertyName, $attributes[0]);
+    public function execute(OdaObject $object, array $attributes = array()) {
 
-        return $this->object;
+        return $object->setDataValue($this->propertyName, $attributes[0]);
     }
 
 }

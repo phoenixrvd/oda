@@ -8,10 +8,11 @@ interface Method {
     /**
      * Ruft die Accessor-Methode Auf.
      *
-     * @param array $attributes (optional)
+     * @param OdaObject $object
+     * @param array     $attributes (optional)
      *
      * @return mixed
      */
-    public function execute();
+    public function execute(OdaObject $object);
 
 }

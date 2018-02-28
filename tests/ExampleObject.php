@@ -24,4 +24,12 @@ class ExampleObject implements OdaObject {
 
     use ValueObject, DataAccessors;
 
+    public function setValue($data){
+        return $this->setDataValue('value', $data);
+    }
+
+    public function getValue(){
+        return $this->getData()['value'];
+    }
+
 }

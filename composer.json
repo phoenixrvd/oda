@@ -3,8 +3,7 @@
     "description": "API-Package for simplify access from Data-Block of an object, without implementing from getters and setters.",
     "type": "library",
     "require": {
-        "php": ">=5.6",
-        "nayjest/str-case-converter": "^1.0"
+        "php": ">=5.6"
     },
     "require-dev": {
         "ext-xdebug": "*",
