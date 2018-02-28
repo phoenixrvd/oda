@@ -7,6 +7,6 @@ namespace PhoenixRVD\ODA\Exceptions;
  *
  * Liste aller Händlers findet man in Methods-Verzeichnis.
  */
-class NotImplementedException extends \BadMethodCallException {
-
+class NotImplementedException extends \BadMethodCallException
+{
 }

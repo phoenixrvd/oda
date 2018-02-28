@@ -2,7 +2,6 @@
 
 namespace PhoenixRVD\ODA\Traits;
 
-
 use PhoenixRVD\ODA\MethodFactory;
 
 /**
@@ -10,12 +9,12 @@ use PhoenixRVD\ODA\MethodFactory;
  *
  * Implementiert ein Teil des OdaObject-Interfaces
  */
-trait DataAccessors {
-
-    public function __call($name, $arguments) {
-        /** @noinspection PhpParamsInspection $this ist im Trait nicht bekannt */
-        /** @noinspection PhpMethodParametersCountMismatchInspection Optional-Method im Interface-Contract */
+trait DataAccessors
+{
+    public function __call($name, $arguments)
+    {
+        /* @noinspection PhpParamsInspection $this ist im Trait nicht bekannt */
+        /* @noinspection PhpMethodParametersCountMismatchInspection Optional-Method im Interface-Contract */
         return MethodFactory::getInstance()->makeMethod($name)->execute($this, $arguments);
     }
-
 }

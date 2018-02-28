@@ -7,21 +7,22 @@ namespace PhoenixRVD\ODA\Traits;
  *
  * Implementiert ein Teil des OdaObject-Interfaces
  */
-trait ValueObject {
-
+trait ValueObject
+{
     /**
-     * Storage für alle Daten des Objektes
+     * Storage für alle Daten des Objektes.
      *
      * @var array
      */
-    protected $data = array();
+    protected $data = [];
 
     /**
-     * Gibt alle Daten des Objektes zurück
+     * Gibt alle Daten des Objektes zurück.
      *
      * @return array
      */
-    public function getData() {
+    public function getData()
+    {
         return $this->data;
     }
 
@@ -31,10 +32,10 @@ trait ValueObject {
      *
      * @return $this
      */
-    public function setDataValue($property, $value) {
-        $this->data[ $property ] = $value;
+    public function setDataValue($property, $value)
+    {
+        $this->data[$property] = $value;
 
         return $this;
     }
-
 }

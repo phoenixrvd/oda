@@ -2,10 +2,9 @@
 
 namespace PhoenixRVD\ODA;
 
-
+use PhoenixRVD\ODA\Traits\ValueObject;
 use PhoenixRVD\ODA\Interfaces\OdaObject;
 use PhoenixRVD\ODA\Traits\DataAccessors;
-use PhoenixRVD\ODA\Traits\ValueObject;
 
 /**
  * @method $this setFoo(string $value)
@@ -18,18 +17,18 @@ use PhoenixRVD\ODA\Traits\ValueObject;
  * @method string getBar()
  * @method bool isBar(string $value)
  * @method bool hasBar()
- *
  */
-class ExampleObject implements OdaObject {
-
+class ExampleObject implements OdaObject
+{
     use ValueObject, DataAccessors;
 
-    public function setValue($data){
+    public function setValue($data)
+    {
         return $this->setDataValue('value', $data);
     }
 
-    public function getValue(){
+    public function getValue()
+    {
         return $this->getData()['value'];
     }
-
 }

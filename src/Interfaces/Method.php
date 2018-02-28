@@ -2,9 +2,8 @@
 
 namespace PhoenixRVD\ODA\Interfaces;
 
-
-interface Method {
-
+interface Method
+{
     /**
      * Ruft die Accessor-Methode Auf.
      *
@@ -14,5 +13,4 @@ interface Method {
      * @return mixed
      */
     public function execute(OdaObject $object);
-
 }

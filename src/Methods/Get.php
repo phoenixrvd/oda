@@ -9,11 +9,12 @@ use PhoenixRVD\ODA\Interfaces\OdaObject;
  *
  * @example getMyValue
  */
-class Get extends AbstractMethod {
-
-    public function execute(OdaObject $object) {
+class Get extends AbstractMethod
+{
+    public function execute(OdaObject $object)
+    {
         $data = $object->getData();
 
-        return $data[ $this->propertyName ];
+        return $data[$this->propertyName];
     }
 }

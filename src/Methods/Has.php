@@ -10,12 +10,12 @@ use PhoenixRVD\ODA\Interfaces\OdaObject;
  *
  * @example hasMyValue
  */
-class Has extends AbstractMethod {
-
-    public function execute(OdaObject $object) {
+class Has extends AbstractMethod
+{
+    public function execute(OdaObject $object)
+    {
         $data = $object->getData();
 
-        return isset($data[ $this->propertyName ]);
+        return isset($data[$this->propertyName]);
     }
-
 }

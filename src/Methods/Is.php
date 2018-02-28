@@ -10,16 +10,16 @@ use PhoenixRVD\ODA\Interfaces\OdaObject;
  * D.h.
  *  $this->setValue(true);
  *  $this->isMyValue(true); // True
- *  $this->isMyValue('true'); // False
+ *  $this->isMyValue('true'); // False.
  *
  * @example isMyValue(true)
  */
-class Is extends AbstractMethod {
-
-    public function execute(OdaObject $object, $attributes = array()) {
+class Is extends AbstractMethod
+{
+    public function execute(OdaObject $object, $attributes = [])
+    {
         $data = $object->getData();
 
-        return isset($data[ $this->propertyName ]) && ($data[ $this->propertyName ] === $attributes[0]);
+        return isset($data[$this->propertyName]) && ($data[$this->propertyName] === $attributes[0]);
     }
-
 }

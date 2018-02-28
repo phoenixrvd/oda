@@ -4,11 +4,12 @@ namespace PhoenixRVD\ODA;
 
 use PHPUnit\Framework\TestCase;
 
-class DataAccessorsTest extends TestCase {
-
+class DataAccessorsTest extends TestCase
+{
     private $rwOperationsCount = 5000;
 
-    public function testDefaultMethods() {
+    public function testDefaultMethods()
+    {
         $object = new ExampleObject();
 
         self::assertInstanceOf(ExampleObject::class, $object->setFoo('bar'));
@@ -26,8 +27,8 @@ class DataAccessorsTest extends TestCase {
         self::assertEquals('null', $object->setFoo(null)->asJSONFoo());
     }
 
-    public function testPerformanceDifference() {
-
+    public function testPerformanceDifference()
+    {
         $object = new ExampleObject();
         $rwOperations = 1000;
 
@@ -41,13 +42,14 @@ class DataAccessorsTest extends TestCase {
             $object->getFoo();
         });
 
-        $diffCurrent  = ($timeDynamic / $timeStatic);
+        $diffCurrent = ($timeDynamic / $timeStatic);
         $diffAccepted = 5;
-        $message      = "Max. Time difference to classic calls is to big (Currently: $diffCurrent Accepted: $diffAccepted)";
+        $message = "Max. Time difference to classic calls is to big (Currently: $diffCurrent Accepted: $diffAccepted)";
         self::assertTrue(($diffCurrent < $diffAccepted), $message);
     }
 
-    private function runRwOperations($rwOperations, $handler) {
+    private function runRwOperations($rwOperations, $handler)
+    {
         $i = $rwOperations;
 
         $curTime = microtime(true);
@@ -58,7 +60,8 @@ class DataAccessorsTest extends TestCase {
         return round(microtime(true) - $curTime, 3) * 1000;
     }
 
-    public function testCustomMethods() {
+    public function testCustomMethods()
+    {
         $object = new ExampleExtendedObject();
 
         self::assertEquals('Hallo Word', $object->setFoo('Word')->halloFoo());
@@ -68,7 +71,8 @@ class DataAccessorsTest extends TestCase {
      * @expectedException \PhoenixRVD\ODA\Exceptions\NotImplementedException
      * @expectedExceptionMessage Method not implemented [callFooBar]
      */
-    public function testMethodNotFound() {
+    public function testMethodNotFound()
+    {
         $object = new ExampleObject();
         $object->callFooBar();
     }
@@ -77,9 +81,9 @@ class DataAccessorsTest extends TestCase {
      * @expectedException \PhoenixRVD\ODA\Exceptions\NotImplementedException
      * @expectedExceptionMessage Method not implemented [get]
      */
-    public function testPraefixOnly() {
+    public function testPraefixOnly()
+    {
         $object = new ExampleObject();
         $object->get();
     }
-
 }

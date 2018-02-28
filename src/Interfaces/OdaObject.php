@@ -2,9 +2,8 @@
 
 namespace PhoenixRVD\ODA\Interfaces;
 
-
-interface OdaObject {
-
+interface OdaObject
+{
     /**
      * Gibt Array mit allen Daten des Objects zurück.
      *
@@ -13,7 +12,7 @@ interface OdaObject {
     public function getData();
 
     /**
-     * Setzt eine Object-Property
+     * Setzt eine Object-Property.
      *
      * @param string $property
      * @param mixed  $value
@@ -22,9 +21,5 @@ interface OdaObject {
      */
     public function setDataValue($property, $value);
 
-    /**
-     * {@inheritdoc}
-     */
     public function __call($name, $arguments);
-
 }

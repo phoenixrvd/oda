@@ -9,11 +9,10 @@ use PhoenixRVD\ODA\Interfaces\OdaObject;
  *
  * @example setMyValue('foo')
  */
-class Set extends AbstractMethod {
-
-    public function execute(OdaObject $object, array $attributes = array()) {
-
+class Set extends AbstractMethod
+{
+    public function execute(OdaObject $object, array $attributes = [])
+    {
         return $object->setDataValue($this->propertyName, $attributes[0]);
     }
-
 }
